@@ -7,6 +7,7 @@
 //
 
 import UIKit
+let hani = 0 ... 1000000
 
 enum NumError:Error{
     case over
@@ -36,6 +37,10 @@ class TestError: NSObject {
         /* 伝播させる確認 */
         try check(num)
         let result = num + 1
+        for _ in hani{
+            let atai = 1
+            _ = try check(atai)
+        }
         return result
     }
     

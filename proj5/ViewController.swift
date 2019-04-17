@@ -11,12 +11,24 @@ import UIKit
 class ViewController: UIViewController {
 
     let num = 11
+    func nowtime() -> String{
+        let now = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd HH:mm:ss.SSS"
+        return formatter.string(from: now)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+
+        print("\(nowtime()):test1開始")
         test1()
+        print("\(nowtime()):test1終了test2開始")
         test2()
+        print("\(nowtime()):test2終了test3開始")
         test3()
+        print("\(nowtime()):test3終了")
     }
 
     /*
@@ -28,6 +40,8 @@ class ViewController: UIViewController {
     /*
      こちらの場合は値をチェックする処理を別途呼び出す
      必要があるので使う側が意識して作らないといけない。
+     ただしtest2と比べるとチェックは行なっているので
+     余分な処理は走らない。
      */
     /// 入力値にプラス1した値を表示する処理
     func test1(){
@@ -51,7 +65,7 @@ class ViewController: UIViewController {
     /*
      こちらの場合は値をチェックする処理の呼び出しは不要。
      plusOne処理の引数を二つ作らないと判定できない。
-     plusOne処理内で余分な処理が走る可能性がある。
+     plusOne処理内で余分な処理が走ってしまう。
      */
     /// 入力値にプラス1した値を表示する処理
     func test2(){
