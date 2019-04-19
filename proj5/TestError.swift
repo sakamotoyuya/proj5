@@ -9,6 +9,7 @@
 import UIKit
 let hani = 0 ... 1000000
 
+/// 独自エラーをthrowさせるにはErrorを継承させる必要がある
 enum NumError:Error{
     case over
     case under

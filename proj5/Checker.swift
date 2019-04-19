@@ -46,14 +46,17 @@ class Checker: NSObject {
     /// - Parameter num: 値を指定する
     /// - Returns: 入力値+1した値を返却する
     func plusOne(_ num:Int) -> (ErrorCode?,Int){
+        var result = 0
         //値のチェック処理呼び出し
-        let error = check(num)
-        let result = num + 1
+        if let error = check(num) {
+            return (error , result)
+        }
+        result = num + 1
         for _ in hani{
             let atai = 1
             _ = check(atai)
         }
-        return (error,result)
+        return (nil,result)
     }
 
 }
